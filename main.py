@@ -11,13 +11,16 @@ def move_up():
     timmy.fd(10)
 
 def move_down():
-    pass
+    timmy.setheading(270)
+    timmy.fd(10)
 
 def move_left():
-    pass
+    timmy.setheading(190)
+    timmy.fd(10)
 
 def move_right():
-    pass
+    timmy.setheading(0)
+    timmy.fd(10)
 
 screen.listen()
 screen.onkey(key='w', fun=move_up)
