@@ -6,22 +6,31 @@ from turtle import Turtle, Screen
 timmy = Turtle()
 screen = Screen()
 
-def move_up():
-    timmy.setheading(90)
+def move_forwards():
     timmy.fd(10)
 
-def move_down():
-    timmy.setheading(270)
-    timmy.fd(10)
+def move_backwards():
+    timmy.bk(10)
 
 def move_left():
-    timmy.setheading(190)
-    timmy.fd(10)
+    new_heading = timmy.heading() + 10
+    timmy.setheading(new_heading)
 
 def move_right():
-    timmy.setheading(0)
-    timmy.fd(10)
+    new_heading = timmy.heading() - 10
+    timmy.setheading(new_heading)
+
+def clear():
+    timmy.clear()
+    timmy.penup()
+    timmy.home()
+    timmy.pendown()
 
 screen.listen()
-screen.onkey(key='w', fun=move_up)
+screen.onkey(key='w', fun=move_forwards)
+screen.onkey(key='s', fun=move_backwards)
+screen.onkey(key='a', fun=move_left)
+screen.onkey(key='d', fun=move_right)
+screen.onkey(key='space', fun=clear)
+
 screen.exitonclick()
